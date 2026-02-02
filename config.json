@@ -5,18 +5,16 @@
 	"per_job_threads": "24",
 	"depth_window": "500000",
 
-	"genome": "GCA_051940885.1_ASM5194088v1_genomic.fasta.gz",
+	"genome": "GCF_023053635.1_rElgMul1.1.pri_genomic.fna",
 
-	"R1_suffix": "_1.fastq.gz",
-	"R2_suffix": "_2.fastq.gz",
+	"R1_suffix": "_R1.fq.gz",
+	"R2_suffix": "_R2.fq.gz",
 
 	"males": [
-	"SCLL10_CKDL240041032-1A_22HVJ7LT4_L8",
-	"SCLL11_CKDL240041032-1A_22HVJ7LT4_L8"
+	"XEGR_M1_DNAseq"
 	],
 
 	"females": [
-	"SCLL8_CKDL240041032-1A_22HVJ7LT4_L8",
-	"SCLL12_CKDL240041032-1A_22HVJ7LT4_L8"
+	"XEGR_M1_DNAseq"
 	]
 }
