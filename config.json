@@ -1,0 +1,22 @@
+{
+	"repair_mem": "64",
+	"meryl_mem": "32",
+
+	"per_job_threads": "24",
+	"depth_window": "500000",
+
+	"genome": "GCA_051940885.1_ASM5194088v1_genomic.fasta.gz",
+
+	"R1_suffix": "_1.fastq.gz",
+	"R2_suffix": "_2.fastq.gz",
+
+	"males": [
+	"SCLL10_CKDL240041032-1A_22HVJ7LT4_L8",
+	"SCLL11_CKDL240041032-1A_22HVJ7LT4_L8"
+	],
+
+	"females": [
+	"SCLL8_CKDL240041032-1A_22HVJ7LT4_L8",
+	"SCLL12_CKDL240041032-1A_22HVJ7LT4_L8"
+	]
+}
