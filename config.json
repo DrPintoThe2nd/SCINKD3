@@ -6,6 +6,7 @@
 	"depth_window": "500000",
 
 	"genome": "GCF_023053635.1_rElgMul1.1.pri_genomic.fna",
+	"ChrNum": "23"
 
 	"R1_suffix": "_R1.fq.gz",
 	"R2_suffix": "_R2.fq.gz",
