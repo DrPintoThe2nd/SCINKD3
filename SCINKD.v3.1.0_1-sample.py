@@ -19,6 +19,7 @@ threads = config["per_job_threads"]
 meryl_mem = config["meryl_mem"]
 repair_mem = config["repair_mem"]
 window = config["depth_window"]
+ChrNum = config["ChrNum"]
 
 rule all:
     input:
@@ -295,7 +296,7 @@ rule plot_scinkd_F:
         png = "F_{sample}.regions.manhattan.png",
         pdf = "F_{sample}.regions.manhattan.pdf",
     params:
-        ChrNum = 23,
+        ChrNum = ChrNum,
     shell:
         """
         Rscript manhattan_plot.R {input.cov} {params.ChrNum}
@@ -308,7 +309,7 @@ rule plot_scinkd_M:
         png = "M_{sample}.regions.manhattan.png",
         pdf = "M_{sample}.regions.manhattan.pdf",
     params:
-        ChrNum = 23,
+        ChrNum = ChrNum,
     shell:
         """
         Rscript manhattan_plot.R {input.cov} {params.ChrNum}
@@ -322,7 +323,7 @@ rule plot_scinkd:
         png = "{genome}.dotplot.png",
         pdf = "{genome}.dotplot.pdf",
     params:
-        ChrNum = 23,
+        ChrNum = ChrNum,
         genome = genome,
     shell:
         """
