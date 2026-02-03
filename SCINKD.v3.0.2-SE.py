@@ -14,6 +14,12 @@ females = config["females"]
 samples = males + females
 genome = config["genome"]
 
+threads = config["per_job_threads"]
+meryl_mem = config["meryl_mem"]
+repair_mem = config["repair_mem"]
+window = config["depth_window"]
+ChrNum = config["ChrNum"]
+
 rule all:
     input:
 ##setup links rule(s)
@@ -60,11 +66,12 @@ rule meryl_count:
     output:
         out = directory("meryl_db/{sample}.meryl")
     params:
-        threads = 24,
+        threads = threads,
+        memory = meryl_mem,
     shell:
         """
         mkdir -p meryl_db
-        meryl count threads={params.threads} k=28 memory=24 {input.r1} output {output.out}
+        meryl count threads={params.threads} k=28 memory={params.memory} {input.r1} output {output.out}
         sleep 3
         """
 
@@ -170,14 +177,14 @@ rule meryl_lookup_M1:
         """
 
 ##calculate number of kmers occuring in each haplotype
-rule calc_scinkd_F:
+rule map_scinkd_F:
     input:
         r1 = "filtered_reads/{sample}.Fspec.R1.fastq.gz",
     output:
         bam = "mapped_female/{sample}.bam",
         bai = "mapped_female/{sample}.bam.bai",
     params:
-        threads = 12,
+        threads = threads,
         genome = genome,
     shell:
         """
@@ -185,14 +192,14 @@ rule calc_scinkd_F:
         minimap2 -ax sr -t{params.threads} {params.genome} {input.r1} | samtools sort --write-index -@{params.threads} -O bam - -o {output.bam}##idx##{output.bai} 2>/dev/null
         """
 
-rule calc_scinkd_M:
+rule map_scinkd_M:
     input:
         r1 = "filtered_reads/{sample}.Mspec.R1.fastq.gz",
     output:
         bam = "mapped_male/{sample}.bam",
         bai = "mapped_male/{sample}.bam.bai",
     params:
-        threads = 12,
+        threads = threads,
         genome = genome,
     shell:
         """
