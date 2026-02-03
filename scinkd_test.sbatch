@@ -15,4 +15,4 @@ module purge
 
 source activate scinkd
 
-snakemake --use-conda --rerun-incomplete --nolock --cores 48 -j 1 -s SCINKD.v3.0.2_1-sample.py
+snakemake --use-conda --rerun-incomplete --nolock --cores 48 -j 1 -s SCINKD.v3.1.0_1-sample.py
