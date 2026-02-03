@@ -5,7 +5,7 @@ import os
 #mamba create -n scinkd meryl=1.4.1 snakemake=7.32.4 pigz r r-dplyr r-ggplot2 samtools minimap2 bbmap mosdepth --yes
 #mamba activate scinkd
 #mamba env export > SCINKD.v3.0.1a_environment.yml
-#snakemake --use-conda --rerun-incomplete --nolock --cores 2 -j 1 -s SCINKD.v3.0.1a.py -np
+#snakemake --use-conda --rerun-incomplete --nolock --cores 2 -j 1 -s SCINKD.v3.1.0_1-sample.py -np
 
 configfile: "SCINKD3/config.json"
 R1 = config["R1_suffix"]
