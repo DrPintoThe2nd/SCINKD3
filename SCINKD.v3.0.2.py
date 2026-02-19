@@ -54,7 +54,7 @@ rule all:
         expand("mapped_male/{sample}.bam.bai", sample=males),
 ##coverage rule(s)
         expand("cov_F/F_{sample}.mosdepth.summary.txt", sample=females),
-        expand("cov_M/F_{sample}.mosdepth.summary.txt", sample=males),
+        expand("cov_M/M_{sample}.mosdepth.summary.txt", sample=males),
 ##results rule(s)
         expand("{genome}.dotplot.png", genome=genome),
         expand("{genome}.dotplot.pdf", genome=genome),
