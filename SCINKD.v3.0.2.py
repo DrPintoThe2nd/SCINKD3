@@ -99,7 +99,7 @@ rule meryl_count:
     shell:
         """
         mkdir -p meryl_db
-        meryl count threads={params.threads} k=28 memory=24 {input.r1} {input.r2} output {output.out}
+        meryl count threads={params.threads} k=28 memory={params.memory} {input.r1} {input.r2} output {output.out}
         sleep 3
         """
 
