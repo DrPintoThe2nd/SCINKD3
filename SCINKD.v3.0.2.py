@@ -56,8 +56,8 @@ rule all:
         expand("cov_F/F_{sample}.mosdepth.summary.txt", sample=females),
         expand("cov_M/M_{sample}.mosdepth.summary.txt", sample=males),
 ##results rule(s)
-        expand("{genome}.dotplot.png", genome=genome),
-        expand("{genome}.dotplot.pdf", genome=genome),
+#        expand("{genome}.dotplot.png", genome=genome),
+#        expand("{genome}.dotplot.pdf", genome=genome),
         expand("F_{sample}.regions.manhattan.png", sample=females),
         expand("F_{sample}.regions.manhattan.pdf", sample=females),
         expand("M_{sample}.regions.manhattan.png", sample=males),
@@ -338,17 +338,18 @@ rule plot_scinkd_M:
         Rscript manhattan_plot.R {input.cov} {params.ChrNum}
         """
 
-rule plot_scinkd:
-    input:
-        F = expand("cov_F/F_{sample}.mosdepth.summary.txt", sample=females),
-        M = expand("cov_M/M_{sample}.mosdepth.summary.txt", sample=males),
-    output:
-        png = "{genome}.dotplot.png",
-        pdf = "{genome}.dotplot.pdf",
-    params:
-        ChrNum = ChrNum,
-        genome = genome,
-    shell:
-        """
-        Rscript chrom_dotplot.R {params.genome} {input.F} {input.M} {params.ChrNum}
-        """
+#rule plot_scinkd:
+#    input:
+#        F = expand("cov_F/F_{sample}.mosdepth.summary.txt", sample=females),
+#        M = expand("cov_M/M_{sample}.mosdepth.summary.txt", sample=males),
+#    output:
+#        png = "{genome}.dotplot.png",
+#        pdf = "{genome}.dotplot.pdf",
+#    params:
+#        ChrNum = ChrNum,
+#        genome = genome,
+#    shell:
+#        """
+#        Rscript chrom_dotplot.R {params.genome} {input.F} {input.M} {params.ChrNum}
+#        """
+
