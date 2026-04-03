@@ -1,0 +1,30 @@
+{
+	"repair_mem": "12",
+	"meryl_mem": "8",
+
+	"per_job_threads": "6",
+	"depth_window": "500000",
+
+	"genome": "GCF_021028975.2_MPM_Stown_v2.3_genomic.fna",
+	"ChrNum": "17",
+
+	"R1_suffix": "_1.fastq.gz",
+	"R2_suffix": "_2.fastq.gz",
+
+	"males": [
+	"SRR15111480",
+	"SRR15111481",
+	"SRR15111482",
+	"SRR15111483",
+	"SRR15111484",
+	"SRR15111485",
+	"SRR15111486"],
+
+	"females": [
+	"SRR15111473",
+	"SRR15111474",
+	"SRR15111475",
+	"SRR15111476",
+	"SRR15111477",
+	"SRR15111479"]
+}
