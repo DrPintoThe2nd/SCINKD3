@@ -337,7 +337,7 @@ rule plot_scinkd_F:
         ChrNum = ChrNum,
     shell:
         """
-        Rscript manhattan_plot_indiv.R {input.cov} {params.ChrNum}
+        Rscript SCINKD3/manhattan_plot_indiv.R {input.cov} {params.ChrNum}
         """
 
 rule plot_scinkd_M:
@@ -350,7 +350,7 @@ rule plot_scinkd_M:
         ChrNum = ChrNum,
     shell:
         """
-        Rscript manhattan_plot_indiv.R {input.cov} {params.ChrNum}
+        Rscript SCINKD3/manhattan_plot_indiv.R {input.cov} {params.ChrNum}
         """
 
 ##combine data from each individual to summarize and amplify signal
@@ -455,7 +455,7 @@ rule plot_Fspec:
         ChrNum = ChrNum,
     shell:
         """
-        Rscript manhattan_plot_indiv.R {input.cov} {params.ChrNum}
+        Rscript SCINKD3/manhattan_plot_indiv.R {input.cov} {params.ChrNum}
         """
 
 rule plot_Mspec:
@@ -468,7 +468,7 @@ rule plot_Mspec:
         ChrNum = ChrNum,
     shell:
         """
-        Rscript manhattan_plot_indiv.R {input.cov} {params.ChrNum}
+        Rscript SCINKD3/manhattan_plot_indiv.R {input.cov} {params.ChrNum}
         """
 
 #rule plot_scinkd:
