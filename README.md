@@ -12,7 +12,7 @@ Assuming all read files are availabe in the current working directory one can ru
 ```
 git clone https://github.com/DrPintoThe2nd/SCINKD3.git
 mamba env create -f SCINKD3_environment.yml
-mamba activate scinkd
+mamba activate scinkd3
 snakemake --use-conda --rerun-incomplete --nolock --cores 24 -s SCINKD3/SCINKD.v3.1.0.py -np #dry-run
 snakemake --use-conda --rerun-incomplete --nolock --cores 24 -s SCINKD3/SCINKD.v3.1.0.py 
 ```
