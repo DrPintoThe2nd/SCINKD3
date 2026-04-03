@@ -289,7 +289,7 @@ rule calc_cov_F:
         sum = "cov_F/F_{sample}.mosdepth.summary.txt",
     params:
         threads = threads,
-        prefix = lambda wc: "cov_F/" + wc.sample,
+        prefix = lambda wc: "cov_F/F_" + wc.sample,
         window = window,
     shell:
         """
@@ -304,7 +304,7 @@ rule calc_cov_M:
         sum = "cov_M/M_{sample}.mosdepth.summary.txt",
     params:
         threads = threads,
-        prefix = lambda wc: "cov_M/" + wc.sample,
+        prefix = lambda wc: "cov_M/M_" + wc.sample,
         window = window,
     shell:
         """
