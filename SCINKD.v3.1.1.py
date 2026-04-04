@@ -483,6 +483,6 @@ rule plot_scinkd:
         genome = genome,
     shell:
         """
-        Rscript chrom_dotplot.R {params.genome} {input.F} {input.M} {params.ChrNum}
+        Rscript SCINKD3/chrom_dotplot.R {params.genome} {input.F} {input.M} {params.ChrNum}
         """
 
