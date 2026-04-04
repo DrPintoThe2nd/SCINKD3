@@ -7,7 +7,7 @@ import os
 #mamba env export > SCINKD.v3.0.1a_environment.yml
 #snakemake --use-conda --rerun-incomplete --nolock --cores 2 -j 1 -s SCINKD.v3.1.0_1-sample.py -np
 
-configfile: "SCINKD3/config_single-sample.json"
+configfile: "SCINKD3/config_SCINKD.v3.1.0_single-sample.json"
 R1 = config["R1_suffix"]
 R2 = config["R2_suffix"]
 males = config["males"]
