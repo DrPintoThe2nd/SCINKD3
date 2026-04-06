@@ -3,7 +3,7 @@
 	"meryl_mem": "8",
 
 	"per_job_threads": "6",
-	"depth_window": "500000",
+	"depth_window": "100000",
 
 	"genome": "GCF_021028975.2_MPM_Stown_v2.3_genomic.fna",
 	"ChrNum": "17",
