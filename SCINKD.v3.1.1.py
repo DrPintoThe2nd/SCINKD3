@@ -263,7 +263,7 @@ rule repair_M_reads:
         """
 
 ##map unique kmers from in each individual
-rule calc_scinkd_F:
+rule map_scinkd_F:
     input:
         r1 = "repaired_reads/{sample}.Fspec.R1.fq.gz",
         r2 = "repaired_reads/{sample}.Fspec.R2.fq.gz",
@@ -276,10 +276,10 @@ rule calc_scinkd_F:
     shell:
         """
         mkdir -p mapped_female/
-        minimap2 -ax sr -t{params.threads} {params.genome} {input.r1} {input.r2} | samtools sort --write-index -@{params.threads} -O bam - -o {output.bam}##idx##{output.bai} 2>/dev/null
+        minimap2 -ax sr -t{params.threads} --secondary=no {params.genome} {input.r1} {input.r2} | samtools sort --write-index -@{params.threads} -O bam - -o {output.bam}##idx##{output.bai} 2>/dev/null
         """
 
-rule calc_scinkd_M:
+rule map_scinkd_M:
     input:
         r1 = "repaired_reads/{sample}.Mspec.R1.fq.gz",
         r2 = "repaired_reads/{sample}.Mspec.R2.fq.gz",
@@ -292,7 +292,7 @@ rule calc_scinkd_M:
     shell:
         """
         mkdir -p mapped_male/
-        minimap2 -ax sr -t{params.threads} {params.genome} {input.r1} {input.r2} | samtools sort --write-index -@{params.threads} -O bam - -o {output.bam}##idx##{output.bai} 2>/dev/null
+        minimap2 -ax sr -t{params.threads} --secondary=no {params.genome} {input.r1} {input.r2} | samtools sort --write-index -@{params.threads} -O bam - -o {output.bam}##idx##{output.bai} 2>/dev/null
         """
 
 #calculate coverage/depth for each individual
