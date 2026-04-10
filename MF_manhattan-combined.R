@@ -2,12 +2,13 @@
 
 args <- commandArgs(trailingOnly = TRUE)
 
-if (length(args) < 2) {
-  stop("Usage: Rscript mf_depth_ratio_multi.R male1.gz,male2.gz female1.gz,female2.gz")
+if (length(args) < 3) {
+  stop("Usage: Rscript mf_depth_ratio_multi.R <male_files> <female_files> <N_chromosomes>")
 }
 
 male_files   <- strsplit(args[1], ",")[[1]]
 female_files <- strsplit(args[2], ",")[[1]]
+n_chr        <- as.integer(args[3])
 
 # Output prefix
 out_prefix <- sub("\\.bed\\.gz$|\\.gz$|\\.bed$", "", basename("SCINKD3"))
@@ -37,6 +38,7 @@ for (df in c(male_list, female_list)) {
 }
 
 ref <- male_list[[1]]
+
 check_coords <- function(df) {
   all(df$chr == ref$chr &
       df$start == ref$start &
@@ -51,6 +53,17 @@ if (!all(sapply(c(male_list, female_list), check_coords))) {
 male_mat   <- do.call(cbind, lapply(male_list, function(df) df$value))
 female_mat <- do.call(cbind, lapply(female_list, function(df) df$value))
 
+# --- LIMIT TO FIRST N CHROMOSOMES ---
+chr_order <- unique(ref$chr)
+keep_chr <- chr_order[seq_len(min(n_chr, length(chr_order)))]
+
+keep_idx <- ref$chr %in% keep_chr
+
+# Subset consistently
+ref        <- ref[keep_idx, ]
+male_mat   <- male_mat[keep_idx, , drop = FALSE]
+female_mat <- female_mat[keep_idx, , drop = FALSE]
+
 # --- ROW MEANS ---
 male_mean   <- rowMeans(male_mat, na.rm = TRUE)
 female_mean <- rowMeans(female_mat, na.rm = TRUE)
@@ -62,13 +75,13 @@ female_norm <- female_mean / median(female_mean, na.rm = TRUE)
 # --- LOG2 M/F ---
 log2_mf <- log2(male_norm / female_norm)
 
-# --- CLEAN VALUES (NA, Inf, -Inf -> 0) ---
+# Replace Inf / NA with 0 (for plotting stability if needed)
 log2_mf[!is.finite(log2_mf)] <- 0
 
-# --- X positions ---
+# --- X positions (preserve order) ---
 x <- seq_along(log2_mf)
 
-# --- ALTERNATE COLORS BY CHROMOSOME ---
+# --- ALTERNATING COLORS BY CHROMOSOME (NO REORDERING) ---
 chr <- ref$chr
 chr_index <- as.integer(factor(chr, levels = unique(chr)))
 cols <- ifelse(chr_index %% 2 == 1, "black", "grey")
@@ -78,7 +91,7 @@ plot_ratio <- function() {
        col = cols,
        pch = 16,
        cex = 1,
-       xlab = "Genomic Window",
+       xlab = "Genomic Window (input order)",
        ylab = "log2(M/F Read Depth)",
        main = paste("log2(M/F) Depth (",
                     length(male_files), "M vs",
