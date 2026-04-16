@@ -15,8 +15,8 @@ Assuming all read files are availabe in the current working directory we can mod
 git clone https://github.com/DrPintoThe2nd/SCINKD3.git
 mamba env create -f SCINKD3/SCINKD3_environment.yml
 mamba activate scinkd3
-snakemake --use-conda --rerun-incomplete --nolock --cores 24 -s SCINKD3/SCINKD.v3.1.1.py -np #dry-run
-snakemake --use-conda --rerun-incomplete --nolock --cores 24 -s SCINKD3/SCINKD.v3.1.1.py 
+snakemake --use-conda --rerun-incomplete --nolock --cores 24 -s SCINKD3/SCINKD.v3.1.5.snakemake -np #dry-run
+snakemake --use-conda --rerun-incomplete --nolock --cores 24 -s SCINKD3/SCINKD.v3.1.5.snakemake
 ```
 
 At present, the final output of this workflow will produce sex-specific reads and a manhattan plot of sex-specific coverage for each individual (in repaired_reads/ and [F/M]_cov/, respectively); additionally it will output three summary files (1) a summary manhattan plot for females, (2) a summary manhattan plot for males, and (3) a pseudostatistical dotplot comparison between the sexes akin to the primary output file from SCINKD[v2] with outlier sequence labels applied. Example plots for a gecko, Sphaerodactylus townsendi (6F/7M RADseq dataset), a species with a known XX/XY system on chromosome 3 (Pinto et al. 2022; https://doi.org/10.1093/jhered/esac016):
