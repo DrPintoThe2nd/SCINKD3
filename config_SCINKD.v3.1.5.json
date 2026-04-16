@@ -1,0 +1,30 @@
+{
+	"repair_mem": 6,
+	"meryl_mem": 6,
+
+	"per_job_threads": 6,
+	"depth_window": "50000",
+
+	"genome": "GCF_049243985.1_Ppicta_v3.0_genomic.fna",
+	"ChrNum": "18",
+
+	"R1_suffix": "_1.fastq.gz",
+	"R2_suffix": "_2.fastq.gz",
+
+	"males": [
+	"Paroedura_picta_TG2138_M",
+	"Paroedura_picta_TG2139_M",
+	"Paroedura_picta_TG1041_M",
+	"Paroedura_picta_TG1042_M",
+	"Paroedura_picta_TG1890_M",
+	"Paroedura_picta_TG1891_M"],
+
+	"females": [
+	"Paroedura_picta_TG1043_F",
+	"Paroedura_picta_TG1889_F",
+	"Paroedura_picta_TG1924_F",
+	"Paroedura_picta_TG2160_F",
+	"Paroedura_picta_TG2161_F",
+	"Paroedura_picta_TG761_F"]
+
+}
