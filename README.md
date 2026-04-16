@@ -1,11 +1,11 @@
 # SCINKD3
 Initial development repo of SCINKD[v3]
 
-SCINKD[v2] is a tool to identify sex chromosomes from a single individual with a haplotype-resolved reference genome (https://github.com/DrPintoThe2nd/SCINKD) with a number a caveats stemming from, although generally robust, a small amount of input data,but also capable of running on a moderately powered desktop computer.
+SCINKD[v2] is a tool to identify sex chromosomes from a single individual with a haplotype-resolved reference genome (https://github.com/DrPintoThe2nd/SCINKD) with a number a caveats stemming from, although generally robust, a small amount of input data, but also capable of running on a moderately powered desktop computer.
 
 Development work is ongoing and eventually a manuscript forthcoming, until then if you find this workflow useful please cite the principle source: Pinto BJ, Gable SM, Keating SE, Smith CH, Gamble T, Nielsen SV, Wilson MA. (2026). Sex chromosome identification and genome curation from a single individual with SCINKD. _Molecular Biology and Evolution_. _In press_.
 
-Increasing statistical power by including more individuals is essential in many cases where SCINKD[v2] has failed, e.g. a particular sex-limited region is too small, the homogametic sex was sequenced, or for validating initial SCINKD results. SCINKD3 is designed with this in mind. However, it is not possible to run an analysis at this scale without large amounts of RAM. This pipeline was designed for WGS illumina data, but can theoretically be run on an data type (WGS, RADseq, WES, RNAseq) sequenced to reasonable coverage (probably >=5x for WGS), but has not been tested extensively on varying levels of coverage or data types (only WGS and RADseq)
+Increasing statistical power by including more individuals is essential in many cases where SCINKD[v2] has failed, e.g. a particular sex-limited region is too small, the homogametic sex was sequenced, or for validating initial SCINKD results. SCINKD3 is designed with this in mind. However, it is not possible to run an analysis at this scale without large amounts of RAM. This pipeline was designed for WGS illumina data, but can theoretically be run on an data type (WGS, RADseq, WES, RNAseq) sequenced to reasonable coverage (probably >=10x for WGS), but has not been tested extensively on varying levels of coverage or data types (only WGS and RADseq).
 
 This is the first push development repo (alpha) and is very much use at your own risk. However, please feel free to open issues with questions or suggestions. Most of the plotting scripts are somewhat bare at present, but will be updated in time.
 
