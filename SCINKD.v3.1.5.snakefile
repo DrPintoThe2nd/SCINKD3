@@ -197,7 +197,6 @@ rule meryl_lookup_F1:
 		"filtered_reads/females/{sample}.Fspec.R1.fastq.gz",
 	shell:
 		"""
-		mkdir -p filtered_reads/
 		mkdir -p filtered_reads/females/
 		meryl-lookup -sequence {input.r1} -mers {input.mers} -include -output {output}
 		"""
@@ -209,7 +208,6 @@ rule meryl_lookup_F2:
 		"filtered_reads/females/{sample}.Fspec.R2.fastq.gz",
 	shell:
 		"""
-		mkdir -p filtered_reads/
 		mkdir -p filtered_reads/females/
 		meryl-lookup -sequence {input.r2} -mers {input.mers} -include -output {output}
 		"""
@@ -223,7 +221,6 @@ rule meryl_lookup_M1:
 		"filtered_reads/males/{sample}.Mspec.R1.fastq.gz",
 	shell:
 		"""
-		mkdir -p filtered_reads/
 		mkdir -p filtered_reads/males/
 		meryl-lookup -sequence {input.r1} -mers {input.mers} -include -output {output}
 		"""
@@ -235,7 +232,6 @@ rule meryl_lookup_M2:
 		"filtered_reads/males/{sample}.Mspec.R2.fastq.gz",
 	shell:
 		"""
-		mkdir -p filtered_reads/
 		mkdir -p filtered_reads/males/
 		meryl-lookup -sequence {input.r2} -mers {input.mers} -include -output {output}
 		"""
@@ -253,7 +249,6 @@ rule repair_reads_F:
 		mem_gb = repair_mem,
 	shell:
 		"""
-		mkdir -p repaired_reads/
 		mkdir -p repaired_reads/females/
 		repair.sh -Xmx{resources.mem_gb}g in={input.r1} in2={input.r2} out={output.r1} out2={output.r2} outs={output.S} -da showspeed=t overwrite=t 2>/dev/null
 		"""
@@ -269,7 +264,6 @@ rule repair_reads_M:
 		mem_gb = repair_mem,
 	shell:
 		"""
-		mkdir -p repaired_reads/
 		mkdir -p repaired_reads/males/
 		repair.sh -Xmx{resources.mem_gb}g in={input.r1} in2={input.r2} out={output.r1} out2={output.r2} outs={output.S} -da showspeed=t overwrite=t 2>/dev/null
 		"""
@@ -289,7 +283,6 @@ rule map_scinkd_F:
 	threads: threads,
 	shell:
 		"""
-		mkdir -p mapped/
 		mkdir -p mapped/females/
 		minimap2 -ax sr -t{threads} --secondary=no {params.genome} {input.r1} {input.r2} | samtools sort --write-index -@{threads} -O bam - -o {output.bam}##idx##{output.bai} 2>/dev/null
 		"""
@@ -307,7 +300,6 @@ rule map_scinkd_M:
 		mem_gb = repair_mem,
 	shell:
 		"""
-		mkdir -p mapped/
 		mkdir -p mapped/males/
 		minimap2 -ax sr -t{threads} --secondary=no {params.genome} {input.r1} {input.r2} | samtools sort --write-index -@{threads} -O bam - -o {output.bam}##idx##{output.bai} 2>/dev/null
 		"""
