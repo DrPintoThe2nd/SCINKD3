@@ -13,7 +13,7 @@ Assuming all read files are availabe in the current working directory we can mod
 
 ```
 git clone https://github.com/DrPintoThe2nd/SCINKD3.git
-mamba env create -f SCINKD3/SCINKD3_environment.yml
+mamba env create -f SCINKD3/SCINKD.v3.2.5.environment.yml
 mamba activate scinkd3
 snakemake --use-conda --rerun-incomplete --nolock --cores 24 -s SCINKD3/SCINKD.v3.1.5.snakemake -np #dry-run
 snakemake --use-conda --rerun-incomplete --nolock --cores 24 -s SCINKD3/SCINKD.v3.1.5.snakemake
