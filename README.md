@@ -25,13 +25,13 @@ snakemake --use-conda --rerun-incomplete --nolock --cores 24 -s SCINKD3/SCINKD.v
 At present, the final output of this workflow will produce sex-specific reads and a manhattan plot of sex-specific coverage for each individual (in repaired_reads/ and [F/M]_cov/, respectively); additionally it will output three summary files (1) a summary manhattan plot for females, (2) a summary manhattan plot for males, and (3) a pseudostatistical dotplot comparison between the sexes akin to the primary output file from SCINKD[v2] with outlier sequence labels applied. Example plots for a gecko, Sphaerodactylus townsendi (6F/7M RADseq dataset), a species with a known XX/XY system on chromosome 3 (Pinto et al. 2022; https://doi.org/10.1093/jhered/esac016):
 
 ```
-(1) Females; Fspec_total.regions.manhattan.png
+(1) Females; coverage/Fspec_total.regions.manhattan.png
 ```
 
 <img width="1600" height="600" alt="image" src="https://github.com/user-attachments/assets/c48b1f53-4620-403b-b85f-3e60324cd010" />
 
 ```
-(2) Males; Mspec_total.regions.manhattan.png
+(2) Males; coverage/Mspec_total.regions.manhattan.png
 ```
 
 <img width="1600" height="600" alt="image" src="https://github.com/user-attachments/assets/e0bba67c-6c62-47f3-894e-7def58787da5" />
