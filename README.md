@@ -7,7 +7,10 @@ Development work is ongoing and eventually a manuscript forthcoming, until then 
 
 Increasing statistical power by including more individuals is essential in many cases where SCINKD[v2] has failed, e.g. a particular sex-limited region is too small, the homogametic sex was sequenced, or for validating initial SCINKD results. SCINKD3 is designed with this in mind. However, it is not possible to run an analysis at this scale without large amounts of RAM. This pipeline was designed for WGS illumina data, but can theoretically be run on an data type (WGS, RADseq, WES, RNAseq) sequenced to reasonable coverage (probably >=10x for WGS), but has not been tested extensively on varying levels of coverage or data types (only WGS and RADseq).
 
-This is the first push development repo (alpha) and is very much use at your own risk. However, please feel free to open issues with questions or suggestions. Most of the plotting scripts are somewhat bare at present, but will be updated in time.
+This is the first push development repo (alpha) and is very much use at your own risk. However, please feel free to open issues with questions or suggestions. Most of the plotting scripts are somewhat bare at present, but will be updated in time. Here is the general idea:
+
+<img width="2070" height="1499" alt="SCINKD3_workflow" src="https://github.com/user-attachments/assets/dfa94ece-0b27-460c-b1cc-6daf30e249b6" />
+
 
 Assuming all read files are availabe in the current working directory we can modify the config file (1) to reflect their assignments in the config file along with (2) the read suffixes, (3) per-job CPU/RAM limits, and (4) the reference genome. Then, we can run SCINKD3 for multiple individuals with 24 cores and 64Gb of RAM:
 
