@@ -9,6 +9,8 @@ if (length(args) < 3) {
 male_files   <- strsplit(args[1], ",")[[1]]
 female_files <- strsplit(args[2], ",")[[1]]
 n_chr        <- as.integer(args[3])
+#add pseudocount integer
+eps <- 1e-6
 
 # Output prefix
 out_prefix <- sub("\\.bed\\.gz$|\\.gz$|\\.bed$", "", basename("SCINKD3"))
@@ -65,15 +67,15 @@ male_mat   <- male_mat[keep_idx, , drop = FALSE]
 female_mat <- female_mat[keep_idx, , drop = FALSE]
 
 # --- ROW MEANS ---
-male_mean   <- rowMeans(male_mat, na.rm = TRUE)
-female_mean <- rowMeans(female_mat, na.rm = TRUE)
+male_mean   <- rowMeans(male_mat + eps, na.rm = TRUE)
+female_mean <- rowMeans(female_mat + eps, na.rm = TRUE)
 
 # --- MEDIAN NORMALIZATION ---
 male_norm   <- male_mean / median(male_mean, na.rm = TRUE)
 female_norm <- female_mean / median(female_mean, na.rm = TRUE)
 
 # --- M negate F ---
-mf <- female_norm / male_norm
+mf <- (female_norm + eps) / (male_norm + eps)
 
 # Replace Inf / NA with 0 (for plotting stability if needed)
 mf[!is.finite(mf)] <- 0
