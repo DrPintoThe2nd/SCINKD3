@@ -1,7 +1,7 @@
 # SCINKD3
 Initial development repo of SCINKD[v3]
 
-SCINKD is a tool to identify sex chromosomes from a single individual with a haplotype-resolved reference genome (https://github.com/DrPintoThe2nd/SCINKD) with a number a caveats stemming from, although generally robust, a small amount of input data, but also capable of running on a moderately powered desktop computer.
+SCINKD is a framework to identify sex chromosomes from a single individual with a haplotype-resolved reference genome (https://github.com/DrPintoThe2nd/SCINKD) with a number a caveats stemming from, although generally robust, a small amount of input data, but also capable of running on a moderately powered desktop computer.
 
 Development work is ongoing and eventually a manuscript forthcoming, until then if you find this workflow useful please cite the principle source: Pinto BJ, Gable SM, Keating SE, Smith CH, Gamble T, Nielsen SV, Wilson MA. (2026). Sex chromosome identification and genome curation from a single individual with SCINKD. Molecular Biology and Evolution. 43(4). https://doi.org/10.1093/molbev/msag067
 
